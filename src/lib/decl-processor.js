@@ -116,7 +116,7 @@ const declProcessor = (from, to, options, result, decl) => {
     const dir = { from, to, file: getDirDeclFile(decl) };
     const pattern = getPattern(decl);
 
-    if (!pattern) return;
+    if (!pattern || pattern === -1) return;
 
     decl.value = decl.value
         .replace(pattern, (matched, before, url, after) => {
